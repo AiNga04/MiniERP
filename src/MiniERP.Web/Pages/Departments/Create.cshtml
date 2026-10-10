@@ -1,0 +1,16 @@
+@page
+@model MiniERP.Web.Pages.Departments.CreateModel
+@{ ViewData["Title"] = "Tạo phòng ban"; }
+
+<h1>Tạo phòng ban</h1>
+<form method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+    <div class="mb-3">
+        <label asp-for="Input.DepartmentName" class="form-label"></label>
+        <input asp-for="Input.DepartmentName" class="form-control" maxlength="30" />
+        <span asp-validation-for="Input.DepartmentName" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Tạo phòng ban</button>
+    <a asp-page="Index" class="btn btn-secondary">Hủy</a>
+</form>
+@section Scripts { <partial name="_ValidationScriptsPartial" /> }

@@ -1,0 +1,16 @@
+@page "{id:int}"
+@model MiniERP.Web.Pages.Positions.EditModel
+@{ ViewData["Title"] = "Sửa chức vụ"; }
+
+<h1>Sửa chức vụ #@Model.PositionId</h1>
+<form method="post" asp-route-id="@Model.PositionId">
+    <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+    <div class="mb-3">
+        <label asp-for="Input.PositionName" class="form-label"></label>
+        <input asp-for="Input.PositionName" class="form-control" maxlength="30" />
+        <span asp-validation-for="Input.PositionName" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Lưu thay đổi</button>
+    <a asp-page="Index" class="btn btn-secondary">Hủy</a>
+</form>
+@section Scripts { <partial name="_ValidationScriptsPartial" /> }

@@ -1,0 +1,35 @@
+@page
+@model MiniERP.Web.Pages.Positions.IndexModel
+@{ ViewData["Title"] = "Chức vụ"; }
+
+<h2>Danh sách chức vụ</h2>
+<partial name="_StatusMessage" />
+<p><a asp-page="Create" class="btn btn-primary">Tạo chức vụ</a></p>
+@if (Model.Positions.Count == 0)
+{
+<p>Chưa có chức vụ.</p>
+}
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Tên chức vụ</th>
+            <th>Thao tác</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var position in Model.Positions)
+        {
+        <tr>
+            <td>@position.PositionId</td>
+            <td>@position.PositionName</td>
+            <td>
+                <a asp-page="Details" asp-route-id="@position.PositionId">Chi tiết</a>
+                <a asp-page="Edit" asp-route-id="@position.PositionId" class="ms-2">Sửa</a>
+                <a asp-page="Delete" asp-route-id="@position.PositionId" class="ms-2 text-danger">Xóa</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

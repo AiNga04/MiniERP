@@ -1,0 +1,35 @@
+@page
+@model MiniERP.Web.Pages.Departments.IndexModel
+@{ ViewData["Title"] = "Phòng ban"; }
+
+<h2>Danh sách phòng ban</h2>
+<partial name="_StatusMessage" />
+<p><a asp-page="Create" class="btn btn-primary">Tạo phòng ban</a></p>
+@if (Model.Departments.Count == 0)
+{
+    <p>Chưa có phòng ban.</p>
+}
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Tên phòng ban</th>
+            <th>Thao tác</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var department in Model.Departments)
+        {
+            <tr>
+                <td>@department.DepartmentId</td>
+                <td>@department.DepartmentName</td>
+                <td>
+                    <a asp-page="Details" asp-route-id="@department.DepartmentId">Chi tiết</a>
+                    <a asp-page="Edit" asp-route-id="@department.DepartmentId" class="ms-2">Sửa</a>
+                    <a asp-page="Delete" asp-route-id="@department.DepartmentId" class="ms-2 text-danger">Xóa</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

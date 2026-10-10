@@ -1,0 +1,11 @@
+@page "{id:int}"
+@model MiniERP.Web.Pages.Positions.DeleteModel
+@{ ViewData["Title"] = "Xóa chức vụ"; }
+
+<h1>Xóa chức vụ</h1>
+<p>Bạn có muốn xóa chức vụ <strong>@Model.Position.PositionName</strong>?</p>
+<p>Chức vụ sẽ ẩn khỏi danh sách; dữ liệu liên quan được giữ lại.</p>
+<form method="post" asp-route-id="@Model.Position.PositionId">
+    <button type="submit" class="btn btn-danger">Xác nhận xóa</button>
+    <a asp-page="Index" class="btn btn-secondary">Hủy</a>
+</form>

@@ -1,0 +1,13 @@
+@page "{id:int}"
+@model MiniERP.Web.Pages.Departments.DetailsModel
+@{ ViewData["Title"] = "Chi tiết phòng ban"; }
+
+<h1>Chi tiết phòng ban</h1>
+<partial name="_StatusMessage" />
+<dl class="row">
+    <dt class="col-sm-3">ID</dt><dd class="col-sm-9">@Model.Department.DepartmentId</dd>
+    <dt class="col-sm-3">Tên phòng ban</dt><dd class="col-sm-9">@Model.Department.DepartmentName</dd>
+</dl>
+<a asp-page="Edit" asp-route-id="@Model.Department.DepartmentId" class="btn btn-primary">Sửa</a>
+<a asp-page="Delete" asp-route-id="@Model.Department.DepartmentId" class="btn btn-outline-danger">Xóa</a>
+<a asp-page="Index" class="btn btn-secondary">Danh sách</a>
